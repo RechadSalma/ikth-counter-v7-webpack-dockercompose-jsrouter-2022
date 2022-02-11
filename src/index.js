@@ -1,36 +1,54 @@
-import iKh1 from "./components/iKh1.js";
-import iKimg from "./components/iKimg.js";
-// import iKasync from './components/iKasync.js';
+import route from "./router/route.js";
+import Home from "./pages/Home.js";
+import Side from "./pages/Side.js";
+import ErrorPage from "./pages/ErrorPage.js";
+import link from "./router/link.js";
+import attachEventListenerToLink from "./functions/attachEventListenerToLink.js";
+import rerenderPage from "./functions/rerenderPage.js";
 
 /*To listen to any unhandled promise rejections (no catch handler?)
 +\ you probably remove it afterwards if you think you do not need it. */
 window.addEventListener("unhandledrejection", function (event) {
-    console.warn("iK unhandledrejection (promise): ", event.promise);
-    console.warn("iK unhandledrejection (reason): ", event.reason);
+  console.warn("iK unhandledrejection (promise): ", event.promise);
+  console.warn("iK unhandledrejection (reason): ", event.reason);
 });
 
 const iKindexjs = () => {
-    const iKdiv = document.createElement("div");
+  console.log("iK index page");
 
-    iKdiv.textContent = "iK from iKindexjs";
+  // function dispatchPopstate(event) {
+  //   event.preventDefault;
+  //   console.log("dispatchPopstate event");
+  // }
 
-    iKdiv.style.border = "red 3px solid";
+  let routeLayout = `
+    <div>
+      <header>ik I am header
+      <button type='button'>${link("/", "iK home link")}</button>
+      <button type='button'>${link("/side", "iK side link")}</button>
+      <button type='button'>${link("/*", "iK Error page link")}</button>
+      </header>
 
-    /*iK if you want to use & test out async/await function in your app */
-    // iKasync() /*1+*/
+      <main>
+      ${route("/", Home())}
+      ${route("/side", Side())}
+      ${route("/*", ErrorPage())}
+      </main>
 
-    console.log("iK from the index.js");
+      <footer>iK I am footer</footer>
+    </div>
+  `;
 
-    return iKdiv;
+  const body = document.getElementById("ikbody");
+
+  body.innerHTML = routeLayout;
 }; /*END iKindexjs */
 
-const iKbody = document.getElementsByTagName("body")[0];
+// output innerHTML tags onto body tag
+iKindexjs();
 
-iKbody.appendChild(iKindexjs());
-iKbody.appendChild(iKh1());
-iKbody.appendChild(iKimg());
+// attach event listener to each links so that you prevent reload of page & it will programatic navigates to the correct url & page components
+attachEventListenerToLink();
 
-/**
- * 1+ On your babel config file insert:
- * 		+\ "presets": [["@babel/preset-env", { "targets": { "esmodules": true }} ]]
- */
+// rerender page when link has been click, so you can programmatically navigate to the correct url & matching route page
+rerenderPage();

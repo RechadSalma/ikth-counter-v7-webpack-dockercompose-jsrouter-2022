@@ -1,17 +1,22 @@
 202202011 - ikth-counter-v7-webpack-dockercompose-jsrouter-2022
 ================ LEFT OFF
--
-================ DONE
+-create three js routes scaffold with react-router & ensure everything is working correctly
+	-include the logic to make routes work when switching urls
+		-THIS. using stephen Grider router as example (note3.2) to help me through this. Getting there
+			-on rerenderPage.js function, trying to detect url popstate change, & navigate as design
 
-================ TODO
+================ DONE
 -check for any outdated modules & update if any
 
 -place a <noscript> tag if no javascript is available for the app
 
+================ TODO
 -create three js routes scaffold with react-router & ensure everything is working correctly
 	- / counter page
 	- /side whatever page
 	- /* error page
+	-include the logic to make routes work when switching urls
+	-check error page works accordingly
 
 -implement bootstrap / SASS to routes
 	-install sass
