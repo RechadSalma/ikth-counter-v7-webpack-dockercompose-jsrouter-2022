@@ -1,0 +1,82 @@
+202202011 - ikth-counter-v7-webpack-dockercompose-jsrouter-2022
+================ LEFT OFF
+-
+================ DONE
+
+================ TODO
+-check for any outdated modules & update if any
+
+-place a <noscript> tag if no javascript is available for the app
+
+-create three js routes scaffold with react-router & ensure everything is working correctly
+	- / counter page
+	- /side whatever page
+	- /* error page
+
+-implement bootstrap / SASS to routes
+	-install sass
+	-install bootstrap
+	-create global sass
+	-create individual component sass if necessary
+
+-create layout for each route (eg. header / footer)
+
+-create links for all routes in header component
+
+-create counter component scaffold with display number & its three buttons (increment/decrement/reset)
+
+-do the logic of the counter
+
+-create Dockerfile for nodejs production mode
+
+-Dockerfile.dev for development
+	-use volume
+
+-create docker-compose
+	-do not worry about mongodb/mongoose at the moment
+
+-create mongodb & mongoose
+	-simple example is fine
+
+-ensure page is working & on live server (Heroku)
+	-master branch
+	-check if fallback routes are all working on live site
+
+-redepoy on heroku by making any changes you want
+
+-check up on snyk recommendations
+
+-git commit & see Heroku deploy
+
+-README.md file
+
+================ COME BACK
+
+================ WRITE IN YOUR NOTE DOC
+
+================ MISSION
+-version07: javascript route / docker compose / sass with bootstrap / Heroku
+
+-Dockerfile.dev for development
+
+-docker compose
+	-set up nodejs server / mongodb / mongoose
+	-using volume for Dockerfile.dev
+
+-use docker repository
+	-docker push your image
+
+-test redeploy the docker repo version on Heroku for potential future release
+
+-create a js route using window.history.pushState() / .dispatchEvent() / new PopStateEvent('popstate') / route function / link function
+
+-sass with bootstrap
+
+-three routes:
+	- / counter page with working buttons
+	- /side whatever page to show path pages work with react router
+	- /* error page
+
+================ PLAYGROUND
+
+
