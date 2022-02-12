@@ -1,35 +1,36 @@
 202202011 - ikth-counter-v7-webpack-dockercompose-jsrouter-2022
 ================ LEFT OFF
--create three js routes scaffold with react-router & ensure everything is working correctly
-	-include the logic to make routes work when switching urls
-		-THIS. using stephen Grider router as example (note3.2) to help me through this. Getting there
-			-on rerenderPage.js function, trying to detect url popstate change, & navigate as design
+-do the logic of the counter
+	-on Counter.js, doing the Counter.attachClickEventListenerToCounterButtons() methods
 
 ================ DONE
 -check for any outdated modules & update if any
 
 -place a <noscript> tag if no javascript is available for the app
 
-================ TODO
 -create three js routes scaffold with react-router & ensure everything is working correctly
 	- / counter page
 	- /side whatever page
 	- /* error page
 	-include the logic to make routes work when switching urls
+		-create route & link functions using popstate event / window.dispatchEvent('popstate') / window.location.pathname / etc
+			-ensure the links changing the url without having to reload the page again, triggering the popstate event, while also reutrning the anchor tag
+			-ensure the route renders each page component & detecting the popstate event to re-match the page components with the url
 	-check error page works accordingly
+		-I might need to place error page on each route instead of null
 
 -implement bootstrap / SASS to routes
 	-install sass
 	-install bootstrap
 	-create global sass
+	-create bootstrap custom.scss file to modify bootstrap setting
 	-create individual component sass if necessary
 
--create layout for each route (eg. header / footer)
-
--create links for all routes in header component
+-SKIPPED-create layout for each route (eg. header / footer)
 
 -create counter component scaffold with display number & its three buttons (increment/decrement/reset)
 
+================ TODO
 -do the logic of the counter
 
 -create Dockerfile for nodejs production mode

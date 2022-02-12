@@ -1,13 +1,15 @@
-import excessSpace from "../functions/ExcessSpace";
+import Counter from "../components/Counter.js";
 
 export default function Home() {
   const homeHtml = `
-  <div>
-    <h1>iK I am Home page</h1>
-    <button type='button'>pushState</button>
+  <div class='p-3'>
+    <div class='d-flex justify-content-center'>
+      <h1 class='text-primary'>Home page</h1>
+    </div>
+    <div class='d-flex justify-content-center border border-danger'>
+      ${Counter.render()}
+    </div>
   </div>`;
 
-  const trimmed = excessSpace(homeHtml);
-
-  return trimmed;
+  return homeHtml;
 }

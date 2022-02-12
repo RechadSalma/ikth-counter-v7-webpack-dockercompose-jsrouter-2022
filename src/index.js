@@ -1,10 +1,9 @@
+import "./styles/global.scss"; //includes bootstrap custom scss
 import route from "./router/route.js";
-import Home from "./pages/Home.js";
-import Side from "./pages/Side.js";
-import ErrorPage from "./pages/ErrorPage.js";
 import link from "./router/link.js";
-import attachEventListenerToLink from "./functions/attachEventListenerToLink.js";
-import rerenderPage from "./functions/rerenderPage.js";
+import excessSpace from "./functions/excessSpace.js";
+import MainLayout from "./components/MainLayout.js";
+import Counter from "./components/Counter";
 
 /*To listen to any unhandled promise rejections (no catch handler?)
 +\ you probably remove it afterwards if you think you do not need it. */
@@ -14,41 +13,50 @@ window.addEventListener("unhandledrejection", function (event) {
 });
 
 const iKindexjs = () => {
-  console.log("iK index page");
-
-  // function dispatchPopstate(event) {
-  //   event.preventDefault;
-  //   console.log("dispatchPopstate event");
-  // }
+  // alternatively you could create layout component to make things cleaner to read
 
   let routeLayout = `
     <div>
-      <header>ik I am header
-      <button type='button'>${link("/", "iK home link")}</button>
-      <button type='button'>${link("/side", "iK side link")}</button>
-      <button type='button'>${link("/*", "iK Error page link")}</button>
+      <header>
+        <code>iK I am header</code>
+        <ul>
+          <li>
+            <button type='button'>${link.homeLink("iK home link")}</button>
+          </li>
+          <li>
+            <button type='button'>${link.sideLink("iK side link")}</button>
+          </li>
+          <li>
+            <button type='button'>${link.errorPage(
+              "iK test error page"
+            )}</button>
+          </li>
+        </ul>
       </header>
 
-      <main>
-      ${route("/", Home())}
-      ${route("/side", Side())}
-      ${route("/*", ErrorPage())}
+      <main class='container p-2 border border-secondary'>
+        ${MainLayout()}
       </main>
 
       <footer>iK I am footer</footer>
     </div>
   `;
 
+  const routeLayoutTrim = excessSpace(routeLayout);
+
   const body = document.getElementById("ikbody");
 
-  body.innerHTML = routeLayout;
+  body.innerHTML = routeLayoutTrim;
 }; /*END iKindexjs */
 
 // output innerHTML tags onto body tag
 iKindexjs();
 
 // attach event listener to each links so that you prevent reload of page & it will programatic navigates to the correct url & page components
-attachEventListenerToLink();
+link.attachPopstateEventListenerToLink();
 
-// rerender page when link has been click, so you can programmatically navigate to the correct url & matching route page
-rerenderPage();
+// rerender page when url has been change such as link anchor been click, it will detect the popstate event & programmically naviage to the matching route page
+route.rerenderPageWhenUrlChanges();
+
+// for counter to add function logic to increment/decrement/reset buttons
+Counter.attachClickEventListenerToCounterButtons();
