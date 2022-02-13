@@ -1,0 +1,27 @@
+# from node & alpine
+FROM node:16.14-alpine3.15
+
+# create a directory you will like your app to be stored within
+WORKDIR /iKappDev
+
+# copy package.json
+COPY ./package.json .
+
+# create volume to connect to your local files
+# VOLUME /iKappDev/node_modules
+# VOLUME .:/iKappDev
+
+# npm install
+RUN echo 'IK INSTALLING PACKAGES' && npm run ikupdate
+
+# copy file to directory (except for node_modules dist )
+COPY ./.eslintignore .
+COPY ./.eslintrc.js .
+COPY ./.prettierignore .
+COPY ./.prettierrc.json .
+COPY ./iK-toDo.txt .
+COPY ./webpack.dev.config.js .
+COPY ./src ./src
+
+# remove directory/files you do not want before running webpack dev server # create & copy ikmanifestDir to dist directory # default command to run webpack dev server
+CMD echo 'IK RUNNING DEV SERVER' && npm run dev

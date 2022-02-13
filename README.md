@@ -2,22 +2,29 @@
 
 ## Status
 
-- 20220206: _completed most of what I wanted to achieve, & am pleased in general_
+- 20220213:
+  - _successful in creating js router using popstate event / dispatchEvent() / etc. So I would like to keep this as template in case I wanted to use it_
+  - _FAILED in creating a working development docker with volume. I spend the whole day on this. Could not get it to work with neither `Dockerfile.dev` (VOLUME) or docker-compose. But I did create a `docker-compose.yml` file_
+    - _Successful in deploying with Heroku, however it is just a simple node server, would be interesting with other images too_
+  - _successful in using sass & bootstrap together. Even created custom file & etc_
+  - _counter did not finish but other things I mostly did_
 
 ---
 
 ## Mission
 
-- Wanted to test out: webpack / react / react-router / redux / sass / redux devtools / webpack image optimization plugins / Netlify form submission (contact form)
-- Three route paths:
-  - `/` = counter page with three working redux buttons
-  - `/side` = display compress imaged
-  - `/form` = contact form
-  - `/*` = error page
-- working counter with redux
-- use of SASS within my webpack template
-- optimized image (jpeg),
-- deploy on Netlify using their configuration file
+- version07: javascript router / docker compose / sass with bootstrap
+
+- Dockerfile.dev for development
+
+- docker compose
+- using volume for Dockerfile.dev
+
+- create a js route using window.history.pushState() / .dispatchEvent() / new PopStateEvent('popstate') / route function / link function
+
+- sass with bootstrap
+
+- three routes: - / counter page with working buttons - /side whatever page to show path pages work with react router - /\* error page
 
 ---
 
@@ -25,16 +32,8 @@
 
 - webpack (my template)
 - javascript
-- react
-- react-router
-- redux
-  - @redux-devTools/extension
-  - redux-thunk
 - SASS
-- image-minimizer-webpack-plugin / Imagemin / imagemin-mozjpeg
-  - my jpeg file from 232kb to 11kb with 5% quality on production mode
-- `netlify.toml` - Netlify configuration file to redirect static routes (react-router) & basic setup
-- Netlify form submission as contact form for live site
+- docker compose
 
   ***
 

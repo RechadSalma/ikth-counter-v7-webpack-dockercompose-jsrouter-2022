@@ -30,13 +30,18 @@
 
 -create counter component scaffold with display number & its three buttons (increment/decrement/reset)
 
+-create Dockerfile for nodejs production mode
+	-use a dockerignore file too
+	-deploy it on Heroku
+
 ================ TODO
 -do the logic of the counter
+	-continue on Counter.js, doing the Counter.attachClickEventListenerToCounterButtons() methods
 
--create Dockerfile for nodejs production mode
-
--Dockerfile.dev for development
+FAILED-Dockerfile.dev for development
 	-use volume
+		-iK you might need to use docker-compose for that, if so than skip this until you reach docker-compose
+		-i DID NOT GET LIVE DATA CHANGE LIKE STEPHEN DID DESPITE SPENDING THE WHOLE DAY ON IT
 
 -create docker-compose
 	-do not worry about mongodb/mongoose at the moment
@@ -84,5 +89,8 @@
 	- /* error page
 
 ================ PLAYGROUND
+docker login -u 'rechadkheerdali' -p 'deltA5r@2020Docker' docker.io
 
+COPY ./.eslintignore ./.eslintrc.js ./.prettierignore ./.prettierrc.json ./iK-toDo.txt ./webpack.dev.config.js .
 
+$ docker run -p 9000:9000 v7dev

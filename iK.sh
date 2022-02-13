@@ -1,2 +1,4 @@
-npm i -D webpack@latest webpack-dev-server@latest \
-&& npm outdated
+docker build -t v7dev -f Dockerfile.dev . && \
+docker run -p 9000:9000 v7dev
+
+# docker run -it v7dev sh

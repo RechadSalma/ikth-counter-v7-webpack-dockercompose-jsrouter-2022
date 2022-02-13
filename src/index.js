@@ -18,7 +18,7 @@ const iKindexjs = () => {
   let routeLayout = `
     <div>
       <header>
-        <code>iK I am header</code>
+        <code>iK I am header v8</code>
         <ul>
           <li>
             <button type='button'>${link.homeLink("iK home link")}</button>
